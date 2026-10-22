@@ -1,0 +1,44 @@
+=== 1. CONTROL DE ACCESO ===
+  ENTRADA : inicio de sesión op.rojas con contraseña correcta
+  SALIDA  : ACEPTADO -> Sesion(usuario='op.rojas', rol='operador_red')
+
+  ENTRADA : inicio de sesión op.rojas con contraseña incorrecta
+  SALIDA  : RECHAZADO -> AccesoDenegado: Credenciales inválidas
+
+  ENTRADA : inicio de sesión de usuario inexistente 'intruso'
+  SALIDA  : RECHAZADO -> AccesoDenegado: Credenciales inválidas
+
+  ENTRADA : rol operador_red lee identidad del cliente
+  SALIDA  : ACEPTADO -> {'cliente': 'Hogar Ficticio 439', 'rut_cliente': '76.347.182-9'}
+
+  ENTRADA : rol analista_datos intenta leer identidad
+  SALIDA  : RECHAZADO -> AccesoDenegado: El rol 'analista_datos' no tiene el permiso 'leer_identidad'
+
+=== 2. PROTECCIÓN DE CAMPOS SENSIBLES ===
+  Registro original (sintético):
+    cliente    : Hogar Ficticio 439
+    rut_cliente: 76.347.182-9
+    id_medidor : MED-SIM-7949126
+    direccion  : Camino Ficticio 436
+  Registro protegido en almacenamiento:
+    cliente   : gAAAAABq2WGJeob2GNNMBqLBnFMkCkC4T6AhqH3wfQgw...
+    rut_cliente: gAAAAABq2WGJMpau392aAcv-cXzp5VFucNNB2yVJzx7j...
+    id_medidor: gAAAAABq2WGJoSvqpQujT6YlEsedKSqUDeAVe9t1uA6s...
+    direccion : gAAAAABq2WGJLCL4ZSiS0KaUxu68OxrOmOtWanJlPsPo...
+  Campo no sensible (hora) sin cambios: 12
+  Clave en el entorno (ENERGYSMART_CLAVE): definida, valor no mostrado
+
+=== 3. REGISTRO DE EVENTOS SIN DATOS IDENTIFICABLES ===
+   {'ts': '2026-10-22T01:06:17+00:00', 'evento': 'inicio_sesion', 'usuario': '8261e1effe9633e0', 'objeto': None, 'resultado': 'ok', 'detalle': 'rol=operador_red'}
+   {'ts': '2026-10-22T01:06:17+00:00', 'evento': 'inicio_sesion', 'usuario': '8261e1effe9633e0', 'objeto': None, 'resultado': 'ok', 'detalle': 'rol=operador_red'}
+   {'ts': '2026-10-22T01:06:17+00:00', 'evento': 'inicio_sesion', 'usuario': '8261e1effe9633e0', 'objeto': None, 'resultado': 'rechazado', 'detalle': 'Credenciales inválidas'}
+   {'ts': '2026-10-22T01:06:17+00:00', 'evento': 'inicio_sesion', 'usuario': '91e7c996aae84ec3', 'objeto': None, 'resultado': 'rechazado', 'detalle': 'Credenciales inválidas'}
+   {'ts': '2026-10-22T01:06:17+00:00', 'evento': 'inicio_sesion', 'usuario': 'd3b2ba1771d92255', 'objeto': None, 'resultado': 'ok', 'detalle': 'rol=analista_datos'}
+   {'ts': '2026-10-22T01:06:17+00:00', 'evento': 'leer_identidad', 'usuario': '8261e1effe9633e0', 'objeto': '2e7ef39479bb9028', 'resultado': 'ok', 'detalle': ''}
+   {'ts': '2026-10-22T01:06:17+00:00', 'evento': 'leer_identidad', 'usuario': '8261e1effe9633e0', 'objeto': '2e7ef39479bb9028', 'resultado': 'ok', 'detalle': ''}
+   {'ts': '2026-10-22T01:06:17+00:00', 'evento': 'leer_identidad', 'usuario': 'd3b2ba1771d92255', 'objeto': '2e7ef39479bb9028', 'resultado': 'rechazado', 'detalle': "El rol 'analista_datos' no tiene el permiso 'leer_identidad'"}
+   {'ts': '2026-10-22T01:06:17+00:00', 'evento': 'nota_operacion', 'usuario': '8261e1effe9633e0', 'objeto': '2e7ef39479bb9028', 'resultado': 'ok', 'detalle': 'revisión del cliente [RUT-REDACTADO] contacto [CORREO-REDACTADO]'}
+   {'ts': '2026-10-22T01:06:17+00:00', 'evento': 'inicio_sesion', 'usuario': 'b149855a5d898767', 'objeto': None, 'resultado': 'ok', 'detalle': 'rol=auditor'}
+   {'ts': '2026-10-22T01:06:17+00:00', 'evento': 'consultar_auditoria', 'usuario': 'b149855a5d898767', 'objeto': None, 'resultado': 'ok', 'detalle': ''}
+
+  Verificación: valores identificables encontrados en la bitácora = 0 (esperado 0)

@@ -1,0 +1,76 @@
+{
+  "version": "1.0.0",
+  "decisiones": [
+    {
+      "id": "D1",
+      "decision": "Separar prueba (25 %) estratificada por grupo y clase antes de cualquier ajuste.",
+      "motivo": "Evitar contaminación: la prueba solo mide."
+    },
+    {
+      "id": "D2",
+      "decision": "Imputar con mediana y agregar indicadores de dato faltante, ajustados solo con entrenamiento.",
+      "motivo": "El centro B tiene hasta 38 % de faltantes en PCR; la ausencia es informativa."
+    },
+    {
+      "id": "D3",
+      "decision": "Ponderar cada celda grupo x clase de forma inversa a su frecuencia.",
+      "motivo": "Clase positiva rara y centro B con pocos datos."
+    },
+    {
+      "id": "D4",
+      "decision": "Agregar indicador de centro e interacciones centro x variable.",
+      "motivo": "El equipo de imagen del centro B tiene otra calibración."
+    },
+    {
+      "id": "D5",
+      "decision": "Umbral de decisión 0.44 elegido por validación cruzada (F2) en entrenamiento.",
+      "motivo": "En tamizaje es más costoso omitir un enfermo que generar una falsa alarma."
+    }
+  ],
+  "limites": [
+    "Datos sintéticos: los resultados no son evidencia clínica.",
+    "Pocos casos positivos del centro B en prueba (48): intervalos de confianza amplios.",
+    "El modelo usa el centro como variable; debe revisarse que no introduzca otra forma de sesgo.",
+    "Una sola partición de prueba; no se evaluó deriva temporal."
+  ],
+  "umbrales_seguimiento": {
+    "recall_minimo_por_grupo": 0.7,
+    "brecha_maxima_recall": 0.1,
+    "precision_minima_por_grupo": 0.3,
+    "faltantes_maximos": 0.25,
+    "accion": "Si alguna regla no se cumple, se convoca una nueva revisión antes de usar el modelo."
+  },
+  "estado_seguimiento": {
+    "recall_grupo_A>=umbral": {
+      "cumple": true,
+      "valor": 0.8242,
+      "umbral": 0.7
+    },
+    "recall_grupo_B>=umbral": {
+      "cumple": true,
+      "valor": 0.8125,
+      "umbral": 0.7
+    },
+    "brecha_recall<=umbral": {
+      "cumple": true,
+      "valor": 0.0117,
+      "umbral": 0.1
+    },
+    "precision_grupo_A>=umbral": {
+      "cumple": true,
+      "valor": 0.3843,
+      "umbral": 0.3
+    },
+    "precision_grupo_B>=umbral": {
+      "cumple": false,
+      "valor": 0.2617,
+      "umbral": 0.3
+    },
+    "faltantes_maximos<=umbral": {
+      "cumple": false,
+      "valor": 0.372,
+      "umbral": 0.25
+    }
+  },
+  "requiere_nueva_revision": true
+}

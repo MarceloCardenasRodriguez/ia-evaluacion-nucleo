@@ -1,0 +1,26 @@
+{
+  "fecha": "2026-10-21",
+  "version": "1.0.0",
+  "lineamientos": [
+    {
+      "lineamiento": "L1. Usar exclusivamente datos sintéticos",
+      "cumplido": true,
+      "evidencia": "data/pacientes_sinteticos.csv: 10000 filas, 100 % con identificador SYN-; generado por scripts/generar_datos.py (semilla 42); prueba test_datos_son_sinteticos."
+    },
+    {
+      "lineamiento": "L2. Separar entrenamiento y prueba",
+      "cumplido": true,
+      "evidencia": "resultados/4_registro_ejecucion.json: 7500 filas de entrenamiento, 2500 de prueba, 0 ids compartidos; pruebas test_entrenamiento_y_prueba_no_comparten_registros y test_la_prueba_no_influye_en_el_ajuste."
+    },
+    {
+      "lineamiento": "L3. Registrar versiones y resultados",
+      "cumplido": true,
+      "evidencia": "CHANGELOG.md y resultados/4_registro_ejecucion.json (versión 1.0.0, sha256 del dataset 10424f3f6b8438f7, scikit-learn 1.8.0); resultados en resultados/1_ a 3_*.json."
+    },
+    {
+      "lineamiento": "L4. Someter el producto a revisión antes de liberarlo",
+      "cumplido": true,
+      "evidencia": "docs/registro_revision.md (revisión simulada, estado: CORRECCIÓN REQUERIDA (aprobación condicionada))."
+    }
+  ]
+}

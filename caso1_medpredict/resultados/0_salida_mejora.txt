@@ -1,0 +1,50 @@
+Entrenamiento: 7500 filas | Prueba (aislada): 2500 filas
+
+== 1. DIAGNÓSTICO INICIAL ==
+Grupo A: n=6035 positivos=771 prevalencia=0.1278 faltantes(pcr)=0.052 faltantes(opacidad)=0.0312
+Grupo B: n=1465 positivos=143 prevalencia=0.0976 faltantes(pcr)=0.372 faltantes(opacidad)=0.1195
+
+Modelo base (media, sin ponderación, umbral 0,5) sobre PRUEBA:
+grupo                          n             positivos                recall             precision                    f1  exactitud_balanceada                   auc
+global                      2500                   304                0.3421                0.7273                0.4653                0.6622                0.8799
+A                           2011                   256                0.3477                0.8018                 0.485                0.6676                0.8948
+B                            489                    48                0.3125                0.4688                 0.375                 0.637                0.8269
+brecha de recall entre grupos: 0.0352 | umbral de decisión: 0.5
+
+== 2. INTERVENCIÓN (imputación + indicadores de faltante, ponderación grupo x clase, umbral por validación cruzada en entrenamiento) ==
+
+Modelo mejorado sobre PRUEBA:
+grupo                          n             positivos                recall             precision                    f1  exactitud_balanceada                   auc
+global                      2500                   304                0.8224                0.3582                 0.499                0.8092                0.8881
+A                           2011                   256                0.8242                0.3843                0.5242                0.8158                0.8947
+B                            489                    48                0.8125                0.2617                0.3959                0.7815                0.8572
+brecha de recall entre grupos: 0.0117 | umbral de decisión: 0.44
+
+== 3. COMPARACIÓN ANTES -> DESPUÉS (prueba) ==
+grupo   métrica                    antes   después     delta
+global  recall                    0.3421    0.8224   +0.4803
+global  precision                 0.7273    0.3582   -0.3691
+global  f1                        0.4653     0.499   +0.0337
+global  exactitud_balanceada      0.6622    0.8092   +0.1470
+global  auc                       0.8799    0.8881   +0.0082
+A       recall                    0.3477    0.8242   +0.4765
+A       precision                 0.8018    0.3843   -0.4175
+A       f1                         0.485    0.5242   +0.0392
+A       exactitud_balanceada      0.6676    0.8158   +0.1482
+A       auc                       0.8948    0.8947   -0.0001
+B       recall                    0.3125    0.8125   +0.5000
+B       precision                 0.4688    0.2617   -0.2071
+B       f1                         0.375    0.3959   +0.0209
+B       exactitud_balanceada       0.637    0.7815   +0.1445
+B       auc                       0.8269    0.8572   +0.0303
+
+== 4. UMBRALES DE SEGUIMIENTO (modelo mejorado) ==
+CUMPLE   recall_grupo_A>=umbral: valor=0.8242 umbral=0.7
+CUMPLE   recall_grupo_B>=umbral: valor=0.8125 umbral=0.7
+CUMPLE   brecha_recall<=umbral: valor=0.0117 umbral=0.1
+CUMPLE   precision_grupo_A>=umbral: valor=0.3843 umbral=0.3
+NO CUMPLE  precision_grupo_B>=umbral: valor=0.2617 umbral=0.3
+NO CUMPLE  faltantes_maximos<=umbral: valor=0.372 umbral=0.25
+Estado: REQUIERE NUEVA REVISIÓN
+
+Evidencia escrita en /home/claude/repo/caso1_medpredict/resultados

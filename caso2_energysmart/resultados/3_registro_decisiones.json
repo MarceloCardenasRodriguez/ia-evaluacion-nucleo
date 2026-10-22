@@ -1,0 +1,76 @@
+{
+  "version": "1.0.0",
+  "decisiones": [
+    {
+      "id": "D1",
+      "decision": "Separar prueba (25 %) estratificada por zona y clase antes de cualquier ajuste.",
+      "motivo": "Evitar contaminación: la prueba solo mide."
+    },
+    {
+      "id": "D2",
+      "decision": "Imputar con mediana y agregar indicadores de dato faltante, ajustados solo con entrenamiento.",
+      "motivo": "La zona rural pierde telemetría (hasta ~22 % en consumo de la hora previa) y la pérdida es más frecuente en carga crítica; la ausencia es informativa."
+    },
+    {
+      "id": "D3",
+      "decision": "Ponderar cada celda grupo x clase de forma inversa a su frecuencia.",
+      "motivo": "Evento crítico poco frecuente y zona rural con pocos registros."
+    },
+    {
+      "id": "D4",
+      "decision": "Agregar indicador de zona e interacciones zona x variable.",
+      "motivo": "La relación temperatura-demanda y la calibración del sensor de voltaje difieren en la zona rural."
+    },
+    {
+      "id": "D5",
+      "decision": "Umbral de decisión 0.53 elegido por validación cruzada (F2) en entrenamiento.",
+      "motivo": "Omitir un evento crítico (riesgo de corte) es más costoso que una falsa alarma."
+    }
+  ],
+  "limites": [
+    "Datos sintéticos: los resultados no son evidencia operacional real.",
+    "Pocos eventos críticos de la zona rural en prueba (30): intervalos de confianza amplios.",
+    "El modelo usa la zona como variable; debe revisarse que no introduzca otra forma de sesgo territorial.",
+    "Una sola partición de prueba; no se evaluó deriva estacional ni temporal."
+  ],
+  "umbrales_seguimiento": {
+    "recall_minimo_por_grupo": 0.7,
+    "brecha_maxima_recall": 0.1,
+    "precision_minima_por_grupo": 0.3,
+    "faltantes_maximos": 0.25,
+    "accion": "Si alguna regla no se cumple, se convoca una nueva revisión antes de usar el modelo."
+  },
+  "estado_seguimiento": {
+    "recall_grupo_urbana>=umbral": {
+      "cumple": true,
+      "valor": 0.7513,
+      "umbral": 0.7
+    },
+    "recall_grupo_rural>=umbral": {
+      "cumple": false,
+      "valor": 0.6667,
+      "umbral": 0.7
+    },
+    "brecha_recall<=umbral": {
+      "cumple": true,
+      "valor": 0.0846,
+      "umbral": 0.1
+    },
+    "precision_grupo_urbana>=umbral": {
+      "cumple": false,
+      "valor": 0.2706,
+      "umbral": 0.3
+    },
+    "precision_grupo_rural>=umbral": {
+      "cumple": false,
+      "valor": 0.1681,
+      "umbral": 0.3
+    },
+    "faltantes_maximos<=umbral": {
+      "cumple": true,
+      "valor": 0.2334,
+      "umbral": 0.25
+    }
+  },
+  "requiere_nueva_revision": true
+}

@@ -1,0 +1,27 @@
+============================= test session starts ==============================
+collecting ... collected 22 items
+
+tests/test_mejora.py::test_datos_son_sinteticos PASSED
+tests/test_mejora.py::test_entrenamiento_y_prueba_no_comparten_registros PASSED
+tests/test_mejora.py::test_particion_conserva_ambos_grupos_y_clases PASSED
+tests/test_mejora.py::test_la_prueba_no_influye_en_el_ajuste PASSED
+tests/test_mejora.py::test_imputacion_se_ajusta_solo_con_entrenamiento PASSED
+tests/test_mejora.py::test_mejora_aumenta_recall_en_ambos_grupos PASSED
+tests/test_mejora.py::test_pesos_equilibran_las_celdas PASSED
+tests/test_seguridad.py::test_usuario_autorizado_inicia_sesion PASSED
+tests/test_seguridad.py::test_contrasena_incorrecta_es_rechazada PASSED
+tests/test_seguridad.py::test_usuario_inexistente_es_rechazado PASSED
+tests/test_seguridad.py::test_cuenta_se_bloquea_tras_tres_fallos PASSED
+tests/test_seguridad.py::test_operador_puede_leer_identidad PASSED
+tests/test_seguridad.py::test_analista_no_puede_leer_identidad PASSED
+tests/test_seguridad.py::test_contrasena_debil_no_se_registra PASSED
+tests/test_seguridad.py::test_campos_sensibles_quedan_cifrados PASSED
+tests/test_seguridad.py::test_clave_incorrecta_no_descifra PASSED
+tests/test_seguridad.py::test_sin_clave_en_entorno_falla_de_forma_explicita PASSED
+tests/test_seguridad.py::test_clave_no_esta_escrita_en_el_codigo PASSED
+tests/test_seguridad.py::test_bitacora_no_contiene_datos_identificables PASSED
+tests/test_seguridad.py::test_bitacora_registra_aceptacion_y_rechazo PASSED
+tests/test_seguridad.py::test_solo_auditor_consulta_la_bitacora PASSED
+tests/test_seguridad.py::test_pseudonimo_es_estable_y_no_revela_el_id PASSED
+
+============================== 22 passed in 5.84s ==============================

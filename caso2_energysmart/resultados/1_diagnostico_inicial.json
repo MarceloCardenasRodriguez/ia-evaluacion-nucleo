@@ -1,0 +1,73 @@
+{
+  "datos_entrenamiento": {
+    "urbana": {
+      "n": 6035,
+      "positivos": 591,
+      "prevalencia": 0.0979,
+      "faltantes_por_variable": {
+        "hora": 0.0,
+        "fin_de_semana": 0.0,
+        "temperatura_c": 0.0202,
+        "humedad_pct": 0.0,
+        "consumo_hace_1h_kwh": 0.0371,
+        "consumo_hace_24h_kwh": 0.0,
+        "voltaje_v": 0.027,
+        "desviacion_frecuencia_mhz": 0.0282
+      }
+    },
+    "rural": {
+      "n": 1465,
+      "positivos": 89,
+      "prevalencia": 0.0608,
+      "faltantes_por_variable": {
+        "hora": 0.0,
+        "fin_de_semana": 0.0,
+        "temperatura_c": 0.0846,
+        "humedad_pct": 0.0,
+        "consumo_hace_1h_kwh": 0.2334,
+        "consumo_hace_24h_kwh": 0.0,
+        "voltaje_v": 0.1229,
+        "desviacion_frecuencia_mhz": 0.1078
+      }
+    }
+  },
+  "metricas_prueba_modelo_base": {
+    "global": {
+      "n": 2500,
+      "positivos": 227,
+      "recall": 0.0969,
+      "precision": 0.6111,
+      "f1": 0.1673,
+      "exactitud_balanceada": 0.5454,
+      "auc": 0.8072
+    },
+    "urbana": {
+      "n": 2011,
+      "positivos": 197,
+      "recall": 0.1117,
+      "precision": 0.6111,
+      "f1": 0.1888,
+      "exactitud_balanceada": 0.552,
+      "auc": 0.8353,
+      "recall_ic95": [
+        0.071,
+        0.157
+      ]
+    },
+    "rural": {
+      "n": 489,
+      "positivos": 30,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "exactitud_balanceada": 0.5,
+      "auc": 0.6622,
+      "recall_ic95": [
+        0.0,
+        0.0
+      ]
+    },
+    "brecha_recall": 0.1117,
+    "umbral_decision": 0.5
+  }
+}

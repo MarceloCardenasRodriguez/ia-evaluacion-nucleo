@@ -1,0 +1,73 @@
+{
+  "datos_entrenamiento": {
+    "A": {
+      "n": 6035,
+      "positivos": 771,
+      "prevalencia": 0.1278,
+      "faltantes_por_variable": {
+        "edad": 0.0,
+        "fumador": 0.0,
+        "saturacion_o2": 0.0184,
+        "frecuencia_respiratoria": 0.0,
+        "temperatura_c": 0.0186,
+        "pcr_mg_l": 0.052,
+        "puntaje_tos": 0.0,
+        "indice_opacidad_imagen": 0.0312
+      }
+    },
+    "B": {
+      "n": 1465,
+      "positivos": 143,
+      "prevalencia": 0.0976,
+      "faltantes_por_variable": {
+        "edad": 0.0,
+        "fumador": 0.0,
+        "saturacion_o2": 0.0949,
+        "frecuencia_respiratoria": 0.0,
+        "temperatura_c": 0.056,
+        "pcr_mg_l": 0.372,
+        "puntaje_tos": 0.0,
+        "indice_opacidad_imagen": 0.1195
+      }
+    }
+  },
+  "metricas_prueba_modelo_base": {
+    "global": {
+      "n": 2500,
+      "positivos": 304,
+      "recall": 0.3421,
+      "precision": 0.7273,
+      "f1": 0.4653,
+      "exactitud_balanceada": 0.6622,
+      "auc": 0.8799
+    },
+    "A": {
+      "n": 2011,
+      "positivos": 256,
+      "recall": 0.3477,
+      "precision": 0.8018,
+      "f1": 0.485,
+      "exactitud_balanceada": 0.6676,
+      "auc": 0.8948,
+      "recall_ic95": [
+        0.289,
+        0.398
+      ]
+    },
+    "B": {
+      "n": 489,
+      "positivos": 48,
+      "recall": 0.3125,
+      "precision": 0.4688,
+      "f1": 0.375,
+      "exactitud_balanceada": 0.637,
+      "auc": 0.8269,
+      "recall_ic95": [
+        0.188,
+        0.438
+      ]
+    },
+    "brecha_recall": 0.0352,
+    "umbral_decision": 0.5
+  }
+}

@@ -1,0 +1,50 @@
+Entrenamiento: 7500 filas | Prueba (aislada): 2500 filas
+
+== 1. DIAGNÓSTICO INICIAL ==
+Grupo urbana: n=6035 positivos=591 prevalencia=0.0979 faltantes(consumo 1h)=0.0371 faltantes(voltaje)=0.027
+Grupo rural: n=1465 positivos=89 prevalencia=0.0608 faltantes(consumo 1h)=0.2334 faltantes(voltaje)=0.1229
+
+Modelo base (media, sin ponderación, umbral 0,5) sobre PRUEBA:
+grupo                          n             positivos                recall             precision                    f1  exactitud_balanceada                   auc
+global                      2500                   227                0.0969                0.6111                0.1673                0.5454                0.8072
+urbana                      2011                   197                0.1117                0.6111                0.1888                 0.552                0.8353
+rural                        489                    30                   0.0                   0.0                   0.0                   0.5                0.6622
+brecha de recall entre grupos: 0.1117 | umbral de decisión: 0.5
+
+== 2. INTERVENCIÓN (imputación + indicadores de faltante, ponderación grupo x clase, umbral por validación cruzada en entrenamiento) ==
+
+Modelo mejorado sobre PRUEBA:
+grupo                          n             positivos                recall             precision                    f1  exactitud_balanceada                   auc
+global                      2500                   227                0.7401                0.2523                0.3763                0.7605                0.8282
+urbana                      2011                   197                0.7513                0.2706                0.3978                0.7657                0.8328
+rural                        489                    30                0.6667                0.1681                0.2685                0.7255                0.7965
+brecha de recall entre grupos: 0.0846 | umbral de decisión: 0.53
+
+== 3. COMPARACIÓN ANTES -> DESPUÉS (prueba) ==
+grupo   métrica                    antes   después     delta
+global  recall                    0.0969    0.7401   +0.6432
+global  precision                 0.6111    0.2523   -0.3588
+global  f1                        0.1673    0.3763   +0.2090
+global  exactitud_balanceada      0.5454    0.7605   +0.2151
+global  auc                       0.8072    0.8282   +0.0210
+urbana  recall                    0.1117    0.7513   +0.6396
+urbana  precision                 0.6111    0.2706   -0.3405
+urbana  f1                        0.1888    0.3978   +0.2090
+urbana  exactitud_balanceada       0.552    0.7657   +0.2137
+urbana  auc                       0.8353    0.8328   -0.0025
+rural   recall                       0.0    0.6667   +0.6667
+rural   precision                    0.0    0.1681   +0.1681
+rural   f1                           0.0    0.2685   +0.2685
+rural   exactitud_balanceada         0.5    0.7255   +0.2255
+rural   auc                       0.6622    0.7965   +0.1343
+
+== 4. UMBRALES DE SEGUIMIENTO (modelo mejorado) ==
+CUMPLE   recall_grupo_urbana>=umbral: valor=0.7513 umbral=0.7
+NO CUMPLE  recall_grupo_rural>=umbral: valor=0.6667 umbral=0.7
+CUMPLE   brecha_recall<=umbral: valor=0.0846 umbral=0.1
+NO CUMPLE  precision_grupo_urbana>=umbral: valor=0.2706 umbral=0.3
+NO CUMPLE  precision_grupo_rural>=umbral: valor=0.1681 umbral=0.3
+CUMPLE   faltantes_maximos<=umbral: valor=0.2334 umbral=0.25
+Estado: REQUIERE NUEVA REVISIÓN
+
+Evidencia escrita en /home/claude/repo/caso2_energysmart/resultados

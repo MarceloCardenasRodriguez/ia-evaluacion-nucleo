@@ -1,0 +1,11 @@
+{"ts": "2026-10-22T01:06:01+00:00", "evento": "inicio_sesion", "usuario": "0ca709fd51fbd53e", "objeto": null, "resultado": "ok", "detalle": "rol=medico"}
+{"ts": "2026-10-22T01:06:01+00:00", "evento": "inicio_sesion", "usuario": "0ca709fd51fbd53e", "objeto": null, "resultado": "ok", "detalle": "rol=medico"}
+{"ts": "2026-10-22T01:06:01+00:00", "evento": "inicio_sesion", "usuario": "0ca709fd51fbd53e", "objeto": null, "resultado": "rechazado", "detalle": "Credenciales inválidas"}
+{"ts": "2026-10-22T01:06:01+00:00", "evento": "inicio_sesion", "usuario": "91f1b270b64662ae", "objeto": null, "resultado": "rechazado", "detalle": "Credenciales inválidas"}
+{"ts": "2026-10-22T01:06:01+00:00", "evento": "inicio_sesion", "usuario": "2d45395bd10f15da", "objeto": null, "resultado": "ok", "detalle": "rol=analista_datos"}
+{"ts": "2026-10-22T01:06:01+00:00", "evento": "leer_identidad", "usuario": "0ca709fd51fbd53e", "objeto": "31754003501a1350", "resultado": "ok", "detalle": ""}
+{"ts": "2026-10-22T01:06:01+00:00", "evento": "leer_identidad", "usuario": "0ca709fd51fbd53e", "objeto": "31754003501a1350", "resultado": "ok", "detalle": ""}
+{"ts": "2026-10-22T01:06:01+00:00", "evento": "leer_identidad", "usuario": "2d45395bd10f15da", "objeto": "31754003501a1350", "resultado": "rechazado", "detalle": "El rol 'analista_datos' no tiene el permiso 'leer_identidad'"}
+{"ts": "2026-10-22T01:06:01+00:00", "evento": "nota_clinica", "usuario": "0ca709fd51fbd53e", "objeto": "31754003501a1350", "resultado": "ok", "detalle": "revisión del caso [RUT-REDACTADO] contacto [CORREO-REDACTADO]"}
+{"ts": "2026-10-22T01:06:01+00:00", "evento": "inicio_sesion", "usuario": "9e617a7a61f3c9b9", "objeto": null, "resultado": "ok", "detalle": "rol=auditor"}
+{"ts": "2026-10-22T01:06:01+00:00", "evento": "consultar_auditoria", "usuario": "9e617a7a61f3c9b9", "objeto": null, "resultado": "ok", "detalle": ""}

@@ -1,0 +1,34 @@
+{
+  "version_prototipo": "1.0.0",
+  "fecha_utc": "2026-10-22T01:06:19+00:00",
+  "semilla": 42,
+  "python": "3.12.3",
+  "scikit_learn": "1.8.0",
+  "numpy": "2.4.4",
+  "sha256_dataset": "3379ec15313732e3",
+  "filas_entrenamiento": 7500,
+  "filas_prueba": 2500,
+  "huella_ids_entrenamiento": "5242ef7344b0f3a1",
+  "huella_ids_prueba": "15bf93cb9681caa8",
+  "ids_compartidos_entre_particiones": 0,
+  "metricas_resumen": {
+    "antes": {
+      "n": 2500,
+      "positivos": 227,
+      "recall": 0.0969,
+      "precision": 0.6111,
+      "f1": 0.1673,
+      "exactitud_balanceada": 0.5454,
+      "auc": 0.8072
+    },
+    "despues": {
+      "n": 2500,
+      "positivos": 227,
+      "recall": 0.7401,
+      "precision": 0.2523,
+      "f1": 0.3763,
+      "exactitud_balanceada": 0.7605,
+      "auc": 0.8282
+    }
+  }
+}

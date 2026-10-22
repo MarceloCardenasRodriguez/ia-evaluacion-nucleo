@@ -1,0 +1,104 @@
+{
+  "antes": {
+    "global": {
+      "n": 2500,
+      "positivos": 227,
+      "recall": 0.0969,
+      "precision": 0.6111,
+      "f1": 0.1673,
+      "exactitud_balanceada": 0.5454,
+      "auc": 0.8072
+    },
+    "urbana": {
+      "n": 2011,
+      "positivos": 197,
+      "recall": 0.1117,
+      "precision": 0.6111,
+      "f1": 0.1888,
+      "exactitud_balanceada": 0.552,
+      "auc": 0.8353,
+      "recall_ic95": [
+        0.071,
+        0.157
+      ]
+    },
+    "rural": {
+      "n": 489,
+      "positivos": 30,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "exactitud_balanceada": 0.5,
+      "auc": 0.6622,
+      "recall_ic95": [
+        0.0,
+        0.0
+      ]
+    },
+    "brecha_recall": 0.1117,
+    "umbral_decision": 0.5
+  },
+  "despues": {
+    "global": {
+      "n": 2500,
+      "positivos": 227,
+      "recall": 0.7401,
+      "precision": 0.2523,
+      "f1": 0.3763,
+      "exactitud_balanceada": 0.7605,
+      "auc": 0.8282
+    },
+    "urbana": {
+      "n": 2011,
+      "positivos": 197,
+      "recall": 0.7513,
+      "precision": 0.2706,
+      "f1": 0.3978,
+      "exactitud_balanceada": 0.7657,
+      "auc": 0.8328,
+      "recall_ic95": [
+        0.685,
+        0.812
+      ]
+    },
+    "rural": {
+      "n": 489,
+      "positivos": 30,
+      "recall": 0.6667,
+      "precision": 0.1681,
+      "f1": 0.2685,
+      "exactitud_balanceada": 0.7255,
+      "auc": 0.7965,
+      "recall_ic95": [
+        0.5,
+        0.833
+      ]
+    },
+    "brecha_recall": 0.0846,
+    "umbral_decision": 0.53
+  },
+  "delta": {
+    "global": {
+      "recall": 0.6432,
+      "precision": -0.3588,
+      "f1": 0.209,
+      "exactitud_balanceada": 0.2151,
+      "auc": 0.021
+    },
+    "urbana": {
+      "recall": 0.6396,
+      "precision": -0.3405,
+      "f1": 0.209,
+      "exactitud_balanceada": 0.2137,
+      "auc": -0.0025
+    },
+    "rural": {
+      "recall": 0.6667,
+      "precision": 0.1681,
+      "f1": 0.2685,
+      "exactitud_balanceada": 0.2255,
+      "auc": 0.1343
+    },
+    "brecha_recall": -0.0271
+  }
+}
